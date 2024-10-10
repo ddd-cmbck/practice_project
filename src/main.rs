@@ -2,7 +2,6 @@
 
 mod editor;
 
-use std::io::{self, Read};
 use editor::Editor;
 
 fn main() {
