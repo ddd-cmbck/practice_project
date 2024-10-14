@@ -130,6 +130,7 @@ name = "practice_project"
 version = "0.1.0"
 dependencies = [
  "crossterm",
+ "log",
 ]
 
 [[package]]
