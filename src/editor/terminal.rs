@@ -1,5 +1,5 @@
 use crossterm::cursor::{Hide, MoveTo, Show};
-use crossterm::{execute, queue};
+use crossterm::{queue};
 use crossterm::terminal::{disable_raw_mode, enable_raw_mode, size, Clear, ClearType};
 use std::io::{stdout, Write};
 
@@ -29,7 +29,9 @@ impl Terminal {
     }
 
     pub fn move_cursor_to(x: u16, y: u16) -> Result<(), std::io::Error> {
-        execute!(stdout(), MoveTo(x, y))?;
+        let mut stdout = stdout();
+        queue!(stdout, MoveTo(x, y))?;
+        stdout.flush()?;
         Ok(())
     }
 
